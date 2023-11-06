@@ -82,11 +82,11 @@ class PandasQReader(QReader):
                 if isinstance(data[i], str):
                     # convert character list (represented as string) to numpy representation
                     meta[column_name] = QSTRING
-                    odict[column_name] = pandas.Series(list(data[i]), dtype = numpy.str).replace(b' ', numpy.nan)
+                    odict[column_name] = pandas.Series(list(data[i]), dtype = numpy.str_).replace(b' ', numpy.nan)
                 elif isinstance(data[i], bytes):
                     # convert character list (represented as string) to numpy representation
                     meta[column_name] = QSTRING
-                    odict[column_name] = pandas.Series(list(data[i].decode()), dtype = numpy.str).replace(b' ', numpy.nan)
+                    odict[column_name] = pandas.Series(list(data[i].decode()), dtype = numpy.str_).replace(b' ', numpy.nan)
                 elif isinstance(data[i], (list, tuple)):
                     meta[column_name] = QGENERAL_LIST
                     tarray = numpy.ndarray(shape = len(data[i]), dtype = numpy.dtype('O'))
